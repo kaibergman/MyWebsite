@@ -10,8 +10,16 @@ import './App.css';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-var colours = ['#264653', '#2A9D8F', '#E9C46A', 'F4A261', '#E76F51'],
+var colours = ['#264653', '#2A9D8F', '#E9C46A', '#F4A261', '#E76F51'],
   i = 0;
+var elementToChange = document.body;
+
+document.body.addEventListener('click', function (event) {
+  elementToChange.style.backgroundColor = colours[++i];
+  if (i >= colours.length - 1) {
+    i = 0;
+  }
+});
 
 document.title = "Kai Bergman";
 
@@ -61,13 +69,8 @@ function App() {
 
   );
 }
-var elementToChange = document.body;
 
-document.body.addEventListener('click', function (event) {
-  elementToChange.style.backgroundColor = colours[++i];
-  if (i >= colours.length) {
-    i = 0;
-  }
-});
+
+
 
 export default App;
